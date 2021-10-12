@@ -1,0 +1,86 @@
+/backend/project/node_modules
+/backend/project/vendor
+/backend/project/var/nginx/logs
+
+# Logs (Symfony4)
+/backend/project/var/log
+/backend/project/nginx/access.log
+/backend/project/nginx/error.log
+/backend/project/var/cache
+
+###> symfony/framework-bundle ###
+/backend/project/.env.local
+/backend/project/.env.local.php
+/backend/project/.env.*.local
+/backend/project/config/secrets/prod/prod.decrypt.private.php
+/backend/project/public/bundles/
+/backend/project/var/
+###< symfony/framework-bundle ###
+
+###> symfony/webpack-encore-bundle ###
+/node_modules/
+/public/build/
+npm-debug.log
+yarn-error.log
+###< symfony/webpack-encore-bundle ###
+
+# Binaries
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+*.war
+*.ear
+*.sar
+*.class
+
+# User-specific stuff
+*.idea
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/**/usage.statistics.xml
+.idea/**/dictionaries
+.idea/**/shelf
+
+# AWS User-specific
+.idea/**/aws.xml
+
+# Generated files
+.idea/**/contentModel.xml
+
+# Sensitive or high-churn files
+.idea/**/dataSources/
+.idea/**/dataSources.ids
+.idea/**/dataSources.local.xml
+.idea/**/sqlDataSources.xml
+.idea/**/dynamic.xml
+.idea/**/uiDesigner.xml
+.idea/**/dbnavigator.xml
+
+# NetBeans specific
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+nbactions.xml
+nb-configuration.xml
+
+# VS Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# Local History for Visual Studio Code
+.history/
+
+
+# OS
+.DS_Store

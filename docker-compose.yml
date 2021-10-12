@@ -1,0 +1,62 @@
+version: "3.8"
+services:
+  nginx:
+    container_name: "nginx"
+    build:
+      context: ./
+      dockerfile: ./dockerfiles/nginx.dockerfile
+    volumes:
+    - ./backend/nginx/default.conf:/etc/nginx/conf.d/default.conf
+    - ./backend/nginx/logs:/var/log/nginx
+    - ./backend/project:/var/www/pokemon
+    ports:
+    - "8080:80"
+    depends_on:
+      - php
+
+
+  php:
+    container_name: "php"
+    build:
+      context: ./
+      dockerfile: ./dockerfiles/php.dockerfile
+    environment:
+      APP_ENV: test
+      APP_SECRET: "c9f23614d80ca3ab6b7b6bb55666d201"
+      DATABASE_URL: "mysql://tiger:pokemon@mysql:3306/pokemon?serverVersion=8.0"
+    volumes:
+      - ./backend/php-fpm/php.ini:/usr/local/etc/php/php.ini
+      - ./backend/project:/var/www/pokemon
+    ports:
+      - "9000:9000"
+    depends_on:
+      - mysql
+
+  composer:
+    build:
+      context: ./
+      dockerfile: ./dockerfiles/composer.dockerfile
+    volumes:
+    - ./backend/project:/var/www/pokemon
+
+  node:
+    container_name: 'node'
+    build:
+      context: ./
+      dockerfile: ./dockerfiles/node.dockerfile
+    volumes:
+      - ./backend/project:/var/www/pokemon
+    tty: true
+    ports:
+    - "3000:3000"
+    stdin_open: true
+
+
+  mysql:
+    container_name: "mysql"
+    image: mysql:latest
+    env_file:
+      - ./backend/mysql/mysql.env
+    ports:
+      - "3306:3306"
+

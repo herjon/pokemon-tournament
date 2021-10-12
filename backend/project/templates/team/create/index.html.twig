@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CreateController!{% endblock %}
+
+{% block body %}
+
+
+    <div class="text-center text-center text-2xl mt-5">
+        {{ 'New Team!' }}
+    </div>
+
+    <div class="container mx-auto">
+        <div id="form-create-team"></div>
+    </div>
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('createFormComponent') }}
+{% endblock %}
